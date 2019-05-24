@@ -33,16 +33,16 @@ class Post(db.Model):
 
 posts = [
     {
-        'author': 'Corey Schafer',
+        'author': 'Ian',
         'title': 'Blog Post 1',
-        'content': 'First post content',
-        'date_posted': 'April 20, 2018'
+        'content': 'Primer post',
+        'date_posted': '20 abril, 2019'
     },
     {
-        'author': 'Jane Doe',
+        'author': 'juan vv',
         'title': 'Blog Post 2',
-        'content': 'Second post content',
-        'date_posted': 'April 21, 2018'
+        'content': 'segundo contenido',
+        'date_posted': '21 abril, 2019'
     }
 ]
 
@@ -55,16 +55,16 @@ def home():
 
 @app.route("/about")
 def about():
-    return render_template('about.html', title='About')
+    return render_template('about.html', title='Acerca de')
 
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegistrationForm()
     if form.validate_on_submit():
-        flash(f'Account created for {form.username.data}!', 'success')
+        flash(f'Cuenta creada para {form.username.data}!', 'success')
         return redirect(url_for('home'))
-    return render_template('register.html', title='Register', form=form)
+    return render_template('register.html', title='Registro', form=form)
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -72,10 +72,10 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         if form.email.data == 'admin@blog.com' and form.password.data == 'password':
-            flash('You have been logged in!', 'success')
+            flash('Logeado con exito!', 'success')
             return redirect(url_for('home'))
         else:
-            flash('Login Unsuccessful. Please check username and password', 'danger')
+            flash('Login incorrecto. Verifique usuario y contraseña', 'danger')
     return render_template('login.html', title='Login', form=form)
 
 
