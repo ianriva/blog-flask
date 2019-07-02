@@ -1,2 +1,2 @@
-/flaskblog/__pychache__
-/flaskblog/site.db
+flaskblog/site.db
+flaskblog/__pycache__/
